@@ -37,7 +37,6 @@ export default function Hero() {
 				<img
 					src={Banner}
 					alt="Illustration of a developer's stack"
-					className="mx-auto max-w-full rounded-lg shadow-lg lg:mx-0"
 				/>
 			</div>
 		</section>
