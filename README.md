@@ -2,6 +2,8 @@
 
 Build your ideal development stack: browse popular technologies, compare them at a glance, and add your picks to a live "Your Stack" panel.
 
+🔗 **Live Demo:** [https://dev-stack-theta-bice.vercel.app/](https://dev-stack-theta-bice.vercel.app/)
+
 ## 🛠 Technologies Used
 
 React 19 · TypeScript · Vite · Tailwind CSS v4 · DaisyUI · React-Toastify · React-Spinners · JSON data
