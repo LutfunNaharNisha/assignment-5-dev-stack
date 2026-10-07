@@ -7,7 +7,7 @@ export const NAV_LINKS = [
 ];
 
 export const SOCIAL_LINKS = [
-	{ label: "GitHub", href: "https://github.com" },
+	{ label: "GitHub", href: "https://github.com/LutfunNaharNisha/" },
 	{ label: "Twitter", href: "https://twitter.com" },
 	{ label: "LinkedIn", href: "https://linkedin.com" },
 ];
