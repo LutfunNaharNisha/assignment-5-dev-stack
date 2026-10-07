@@ -1,75 +1,47 @@
-# React + TypeScript + Vite
+# 🧩 Dev Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Build your ideal development stack: browse popular technologies, compare them at a glance, and add your picks to a live "Your Stack" panel.
 
-Currently, two official plugins are available:
+## 🛠 Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+React 19 · TypeScript · Vite · Tailwind CSS v4 · DaisyUI · React-Toastify · React-Spinners · JSON data
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. **Browse technologies**: responsive 1/2/3-column card grid, loaded from a local JSON file with a loading spinner.
+2. **Build your stack**: add or remove technologies, no duplicates, "Remove All", and toast feedback for every action.
+3. **Themeable UI**: sticky navbar with a mobile layout, and all brand gradients defined once in `src/index.css`.
 
-## Expanding the ESLint configuration
+## 🚀 Run Locally
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+`components/` UI pieces · `constants/` static config · `types/` TypeScript types · `assets/` Assets (Images) · `public/data/technologies.json` data
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## ❓ React Questions
 
-```
+**1. What is JSX, and why is it used in React?**
+JSX is HTML-like syntax written inside JavaScript. It lets us describe the UI right next to the logic that controls it, and it compiles to normal JS function calls.
+
+**2. What is the difference between props and state?**
+Props are read-only inputs passed from a parent. State is data a component owns and can change; changing it re-renders the component.
+
+**3. What does `useState` do, and where did you use it?**
+It stores a value that triggers a re-render when updated. In `TechnologiesSection` I used it for the technologies list, the loading and error values, and the stack. I also used it in `Navbar` to track the active link.
+
+**4. What does `useEffect` do, and why was it needed to load the JSON?**
+It runs side effects after render. Fetching data is a side effect, so I fetch the JSON inside `useEffect` once on mount instead of on every render.
+
+**5. Why does every `.map()` item need a unique `key`?**
+React uses keys to tell which items were added, removed, or moved, so it updates only what changed and keeps each item's state correct.
+
+**6. What is conditional rendering?**
+Showing different UI depending on a condition. In `StackPanel`, an empty stack shows "Your stack is empty." and otherwise renders the list of selected items.
+
+**7. How is data passed from parent to child, and back?**
+Parent to child through props (e.g. `tech` and `added` into `TechCard`). Child to parent by calling a function passed as a prop (e.g. `onAdd(tech)`), which updates the parent's state.
